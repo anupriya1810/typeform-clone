@@ -22,9 +22,19 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="Typeform Clone API", lifespan=lifespan)
+cors_origins_env = os.getenv("CORS_ORIGINS", "*")
+if cors_origins_env.strip() == "*":
+    allow_origins = ["*"]
+    allow_credentials = False
+else:
+    allow_origins = [o.strip().rstrip("/") for o in cors_origins_env.split(",") if o.strip()]
+    allow_credentials = True
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=os.getenv("CORS_ORIGINS", "http://localhost:3000").split(","),
+    allow_origins=allow_origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_credentials=allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
