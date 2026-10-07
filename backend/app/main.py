@@ -13,7 +13,7 @@ from .seed import seed
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    # ponytail: create_all instead of Alembic; add migrations once the schema must evolve with live data.
+    # Using create_all for initial table creation; introduce Alembic migrations as schema evolves.
     Base.metadata.create_all(engine)
     with SessionLocal() as db:
         if db.scalar(select(Form.id).limit(1)) is None:
