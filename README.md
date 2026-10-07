@@ -2,8 +2,8 @@
 
 A form builder modelled on Typeform. Creators build forms in a three-pane builder with drag-and-drop and a live preview, publish them to a public link, and see the results. Respondents get Typeform's one-question-at-a-time flow with animated transitions and keyboard controls.
 
-- **Live app:** _TBD (Vercel)_
-- **API:** _TBD (Render)_ — interactive docs at `/docs`
+- **Live app:** [https://typeform-clone-navy.vercel.app](https://typeform-clone-navy.vercel.app)
+- **API:** [https://typeform-clone-api-qshm.onrender.com](https://typeform-clone-api-qshm.onrender.com) — interactive docs at [/docs](https://typeform-clone-api-qshm.onrender.com/docs)
 - **Stack:** Next.js 16 (App Router, TypeScript, Tailwind v4) · FastAPI · SQLAlchemy 2 · SQLite
 
 ---
